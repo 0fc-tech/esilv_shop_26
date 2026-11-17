@@ -1,8 +1,11 @@
 import 'package:esilv_shop/model/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../model/product.dart';
+
+part 'detail_product_page.g.dart';
 
 class DetailProductPage extends ConsumerWidget {
   final Product product;
@@ -72,3 +75,6 @@ class DetailProductPage extends ConsumerWidget {
     );
   }
 }
+
+@riverpod
+int prixDeReference() => 123;
