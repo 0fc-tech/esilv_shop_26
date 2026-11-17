@@ -17,7 +17,7 @@ class EsilvShop extends StatelessWidget {
     return MaterialApp.router(
       title: 'Esilv Shop',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
       routerConfig: _router,
@@ -45,6 +45,11 @@ final _router = GoRouter(
               builder: (context, asyncSnapshot) {
                 if (asyncSnapshot.hasData && asyncSnapshot.data != null) {
                   return DetailProductPage(product: asyncSnapshot.data!);
+                } else if (asyncSnapshot.connectionState ==
+                    ConnectionState.waiting) {
+                  return Scaffold(
+                    body: Center(child: CircularProgressIndicator()),
+                  );
                 }
                 return Scaffold(
                   body: Center(child: Text("Produit introuvable")),

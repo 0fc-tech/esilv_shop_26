@@ -38,4 +38,19 @@ class Product {
       price: map['price'] as num,
     );
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Product &&
+          id == other.id &&
+          title == other.title &&
+          description == other.description &&
+          category == other.category &&
+          image == other.image &&
+          price == other.price;
+
+  @override
+  int get hashCode =>
+      Object.hash(id, title, description, category, image, price);
 }
